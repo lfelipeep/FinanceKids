@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Juego 2 – Presupuesto</title>
+    <style>
+        body {
+            font-family: "Comic Sans MS", sans-serif;
+            background: linear-gradient(135deg, #A7F3D0, #6EE7B7);
+            text-align: center;
+            padding: 50px;
+        }
+        h1 { color: #065F46; }
+        button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 18px;
+            border: none;
+            border-radius: 10px;
+            background: #059669;
+            color: white;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #10B981;
+        }
+    </style>
+</head>
+<body>
+    <h1>🎮 Juego 2: Organiza tu presupuesto</h1>
+    <p>
+        Arrastra los siguientes elementos para clasificarlos correctamente:
+    </p>
+    <p>💵 Gastos fijos, 🎁 Gastos extra, 💰 Ahorro</p>
+
+    <p>(Aquí podrías implementar más adelante una miniactividad interactiva)</p>
+
+    <form action="{% url 'preguntas2' %}">
+        <button type="submit">Responder preguntas</button>
+    </form>
+</body>
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Preguntas - Tema 1</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #e8f9f0;
+            text-align: center;
+            padding: 30px;
+        }
+        h1 { color: #2d8a4a; }
+        .pregunta {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            max-width: 700px;
+            margin: 20px auto;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        button {
+            background: #2d8a4a;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            margin-top: 10px;
+            cursor: pointer;
+        }
+        button:hover { background: #25763e; }
+    </style>
+</head>
+<body>
+    <h1>Preguntas rápidas 🧩</h1>
+
+    <div class="pregunta">
+        <p><b>1.</b> ¿Para qué sirve el dinero?</p>
+        <button onclick="responder(this, true)">Comprar cosas</button>
+        <button onclick="responder(this, false)">Hacer magia</button>
+    </div>
+
+    <div class="pregunta">
+        <p><b>2.</b> ¿Qué significa ahorrar?</p>
+        <button onclick="responder(this, true)">Guardar dinero para el futuro</button>
+        <button onclick="responder(this, false)">Gastar todo ya</button>
+    </div>
+
+    <div class="pregunta">
+        <p><b>3.</b> ¿Cuál de estos no se compra con dinero?</p>
+        <button onclick="responder(this, false)">Un juguete</button>
+        <button onclick="responder(this, true)">El amor</button>
+    </div>
+
+    <button id="continuar" style="display:none;" onclick="window.location.href='/aprendizaje/2/'">
+        🎉 Siguiente tema
+    </button>
+
+    <script>
+        let correctas = 0;
+
+        function responder(btn, esCorrecta) {
+            if (esCorrecta) {
+                btn.style.background = '#b8f5c0';
+                correctas++;
+            } else {
+                btn.style.background = '#f5b8b8';
+            }
+
+            btn.parentElement.querySelectorAll('button').forEach(b => b.disabled = true);
+
+            if (correctas >= 3) {
+                document.getElementById('continuar').style.display = 'inline-block';
+            }
+        }
+    </script>
+    
+    <form method="post" action="{% url 'completar_tema' tema=1 %}">
+    {% csrf_token %}
+    <button type="submit">✅ Completar Tema 1</button>
+</form>
+
+</body>
+</html>

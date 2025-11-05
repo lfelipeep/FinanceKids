@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Preguntas – Tema 2</title>
+    <style>
+        body {
+            font-family: "Comic Sans MS", sans-serif;
+            background: linear-gradient(135deg, #A7F3D0, #6EE7B7);
+            text-align: center;
+            padding: 50px;
+        }
+        h1 { color: #065F46; }
+        form {
+            max-width: 500px;
+            margin: 0 auto;
+            text-align: left;
+            background: #ECFDF5;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+        }
+        label { display: block; margin-top: 15px; }
+        input[type="radio"] { margin-right: 10px; }
+        button {
+            margin-top: 20px;
+            background: #059669;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #10B981;
+        }
+    </style>
+</head>
+<body>
+    <h1>🧠 Preguntas del Tema 2</h1>
+    <form method="post" action="{% url 'completar_tema' tema=2 %}">
+        {% csrf_token %}
+        <label>1️⃣ ¿Qué es un presupuesto?</label>
+        <input type="radio" name="q1" required> Es una herramienta para planificar gastos y ahorros.<br>
+        <input type="radio" name="q1"> Una forma de gastar sin control.<br>
+        <input type="radio" name="q1"> Un tipo de ahorro secreto.<br>
+
+        <label>2️⃣ ¿Por qué es importante tener un presupuesto?</label>
+        <input type="radio" name="q2" required> Porque ayuda a organizar el dinero y cumplir metas.<br>
+        <input type="radio" name="q2"> Porque permite gastar más.<br>
+        <input type="radio" name="q2"> Porque es obligatorio por ley.<br>
+
+        <button type="submit">✅ Completar tema</button>
+    </form>
+</body>
+</html>

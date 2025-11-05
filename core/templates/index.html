@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Finance Kids</title>
+    <style>
+        body {
+            font-family: "Comic Sans MS", sans-serif;
+            background: linear-gradient(135deg, #A3E635, #86EFAC);
+            text-align: center;
+            padding: 50px;
+        }
+        h1 {
+            color: #14532D;
+        }
+        .tema {
+            margin: 20px;
+            padding: 15px;
+            border-radius: 10px;
+            width: 250px;
+            display: inline-block;
+            background: #F0FDF4;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .tema a {
+            text-decoration: none;
+            color: #166534;
+            font-weight: bold;
+        }
+        .bloqueado {
+            opacity: 0.5;
+            pointer-events: none;
+        }
+        a.logout {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 10px 15px;
+            background: #15803D;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+        }
+        a.logout:hover {
+            background: #16A34A;
+        }
+    </style>
+</head>
+<body>
+    {% load custom_filters %}  <!-- 🔹 ESTA LÍNEA ES NECESARIA -->
+
+    {% if user.is_authenticated %}
+        <h1>¡Bienvenido, {{ user.username }}! 👋</h1>
+        <p>Selecciona el tema que deseas explorar:</p>
+
+        <div class="temas">
+            <!-- Tema 1 -->
+            <div class="tema">
+                <a href="{% url 'aprendizaje' tema=1 %}">🧩 Tema 1: Ahorro y Gasto</a>
+            </div>
+
+            <!-- Tema 2 -->
+            {% if progreso|get_item:user.username >= 2 %}
+                <div class="tema">
+                    <a href="{% url 'aprendizaje' tema=2 %}">💰 Tema 2: Presupuesto</a>
+                </div>
+            {% else %}
+                <div class="tema bloqueado">
+                    <span>🔒 Tema 2: Presupuesto (bloqueado)</span>
+                </div>
+            {% endif %}
+        </div>
+
+        <a class="logout" href="{% url 'logout' %}">Cerrar sesión</a>
+
+    {% else %}
+        <h2>Debes iniciar sesión para acceder al contenido</h2>
+        <a href="{% url 'login' %}">Iniciar Sesión</a>
+    {% endif %}
+</body>
+</html>
