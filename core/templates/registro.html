@@ -3,28 +3,70 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registro - Finance Kids</title>
+    <title>Iniciar Sesión - Finance Kids</title>
+
     <style>
+        /* ==========
+           ESTILOS GLOBALES
+        ========== */
         body {
             font-family: "Poppins", sans-serif;
-            background: #e7f7ed;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            background-color: #e8f8ff; /* Azul pastel de fondo general */
             display: flex;
+        }
+
+        /* ==========
+           CONTENEDOR PRINCIPAL (divide la pantalla en dos columnas)
+        ========== */
+        .container {
+            display: flex;
+            width: 100%;
+            height: 100%;
+        }
+
+        /* ==========
+           COLUMNA IZQUIERDA (logo + formulario)
+        ========== */
+        .left-section {
+            flex: 1; /* Ocupa la mitad izquierda */
+            display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
-            height: 100vh;
+            background-color: #ffffff; /* Fondo blanco limpio */
+            box-shadow: 5px 0 15px rgba(0, 0, 0, 0.05);
         }
+
+        /* Espacio donde iría TU LOGO */
+        .logo {
+            position: absolute;
+            top: 30px;
+            left: 50px;
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #50b9ff;
+        }
+
+        /* ==========
+           FORMULARIO DE INICIO DE SESIÓN
+        ========== */
         form {
-            background: white;
+            background: #f7fdff; /* Fondo muy suave dentro del recuadro */
             padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-            width: 350px;
+            border-radius: 20px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            width: 320px;
             text-align: center;
         }
+
         h2 {
-            color: #2d8a4a;
+            color: #219ebc; /* Azul pastel más fuerte */
             margin-bottom: 20px;
         }
+
         input {
             width: 100%;
             padding: 10px;
@@ -33,8 +75,9 @@
             border: 1px solid #ccc;
             font-size: 1rem;
         }
+
         button {
-            background: #2d8a4a;
+            background: #6fd3ff; /* Azul pastel */
             color: white;
             border: none;
             padding: 10px 20px;
@@ -42,27 +85,125 @@
             border-radius: 8px;
             font-size: 1rem;
             cursor: pointer;
+            transition: background 0.3s ease;
         }
+
         button:hover {
-            background: #276d3f;
+            background: #50b9ff; /* Azul más fuerte al pasar el mouse */
         }
-        p {
-            margin-top: 10px;
+
+        /* Mensaje de error (si Django lo envía) */
+        .error {
+            color: #c0392b;
+            font-size: 0.9rem;
+            margin-bottom: 10px;
         }
-        a {
-            color: #2d8a4a;
-            text-decoration: none;
+
+        /* ==========
+           BOTÓN DE REGISTRO
+        ========== */
+        .register-btn {
+            margin-top: 15px;
+            background-color: white;
+            border: 2px solid #6fd3ff;
+            color: #219ebc;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .register-btn:hover {
+            background-color: #6fd3ff;
+            color: white;
+        }
+
+        /* ==========
+           COLUMNA DERECHA (para el GIF)
+        ========== */
+        .right-section {
+            flex: 1; /* Ocupa la otra mitad de la pantalla */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #d6f0ff; /* Azul aún más claro para contraste */
+        }
+
+        /* Aquí se mostrará tu GIF */
+        .gif-container {
+            width: 80%;
+            max-width: 400px;
+            height: auto;
+            text-align: center;
+        }
+
+        /* ==========
+           RESPONSIVE (para pantallas pequeñas)
+        ========== */
+        @media (max-width: 900px) {
+            .container {
+                flex-direction: column;
+            }
+
+            .left-section, .right-section {
+                flex: none;
+                width: 100%;
+                box-shadow: none;
+            }
+
+            .logo {
+                position: static;
+                margin-bottom: 20px;
+            }
+
+            form {
+                width: 80%;
+                max-width: 350px;
+            }
+
+            .gif-container {
+                display: none; /* Oculta el GIF en móviles */
+            }
         }
     </style>
 </head>
+
 <body>
-    <form method="POST">
-        {% csrf_token %}
-        <h2>Crear cuenta</h2>
-        <input type="text" name="username" placeholder="Nombre de usuario" required>
-        <input type="password" name="password" placeholder="Contraseña" required>
-        <button type="submit">Registrarse</button>
-        <p>¿Ya tienes cuenta? <a href="{% url 'login' %}">Inicia sesión</a></p>
-    </form>
+    <div class="container">
+        <!-- ======= COLUMNA IZQUIERDA ======= -->
+        <div class="left-section">
+            <!-- 🔹 Aquí puedes poner tu logo (imagen o texto) -->
+            <!-- Ejemplo: <img src="{% static 'img/logo.png' %}" alt="Finance Kids Logo" class="logo-img"> -->
+            <div class="logo">Tu Logo Aquí</div>
+
+            <!-- 🔹 Formulario de inicio de sesión -->
+            <form method="POST">
+                {% csrf_token %}
+                <h2>Iniciar Sesión</h2>
+
+                {% if error %}
+                    <div class="error">{{ error }}</div>
+                {% endif %}
+
+                <input type="text" name="username" placeholder="Nombre de usuario" required>
+                <input type="password" name="password" placeholder="Contraseña" required>
+                <button type="submit">Entrar</button>
+
+                <!-- 🔹 Botón adicional para ir al registro -->
+                <a href="{% url 'registro' %}">
+                    <button type="button" class="register-btn">Regístrate</button>
+                </a>
+            </form>
+        </div>
+
+        <!-- ======= COLUMNA DERECHA ======= -->
+        <div class="right-section">
+            <!-- 🔹 Aquí colocarás tu GIF -->
+            <!-- Ejemplo (cuando me lo pases te ayudo a integrarlo bien):
+                 <img src="{% static 'img/animacion.gif' %}" alt="Finance Kids Animación" class="gif-container">
+            -->
+            <div class="gif-container">
+                <p style="color:#50b9ff;">[ Aquí irá tu GIF animado 🎞️ ]</p>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
