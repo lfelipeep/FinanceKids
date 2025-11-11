@@ -90,10 +90,10 @@ USE_TZ = True
 # ARCHIVOS ESTÁTICOS
 # ------------------------
 STATIC_URL = '/static/'
-STATIC_ROOT = BASE_DIR / 'staticfiles'
 STATICFILES_DIRS = [
     BASE_DIR / "core" / "static",
 ]
+STATIC_ROOT = BASE_DIR / "staticfiles"
 
 
 
