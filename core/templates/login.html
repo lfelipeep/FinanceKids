@@ -14,7 +14,7 @@
             margin: 0;
             padding: 0;
             height: 100vh;
-            background-color: #e8f8ff; /* Azul pastel de fondo general */
+            background-color: #e8f8ff;
             display: flex;
         }
 
@@ -25,7 +25,7 @@
             height: 100%;
         }
 
-        /* ========== COLUMNA IZQUIERDA (logo + formulario) ========== */
+        /* ========== COLUMNA IZQUIERDA ========== */
         .left-section {
             flex: 1;
             display: flex;
@@ -37,14 +37,19 @@
             position: relative;
         }
 
-        /* LOGO */
-        .logo-img {
-            width: 180px;
-            margin-bottom: 25px;
-            display: block;
+        /* 🔹 Logo */
+        .logo {
+            position: absolute;
+            top: 30px;
+            left: 40px;
         }
 
-        /* ========== FORMULARIO DE INICIO DE SESIÓN ========== */
+        .logo img {
+            width: 130px;
+            height: auto;
+        }
+
+        /* ========== FORMULARIO ========== */
         form {
             background: #f7fdff;
             padding: 30px;
@@ -84,7 +89,6 @@
             background: #50b9ff;
         }
 
-        /* Mensaje de error */
         .error {
             color: #c0392b;
             font-size: 0.9rem;
@@ -115,11 +119,10 @@
             background-color: #d6f0ff;
         }
 
-        .gif-container {
+        .gif-container img {
             width: 80%;
             max-width: 400px;
             height: auto;
-            text-align: center;
         }
 
         /* ========== RESPONSIVE ========== */
@@ -132,6 +135,11 @@
                 flex: none;
                 width: 100%;
                 box-shadow: none;
+            }
+
+            .logo {
+                position: static;
+                margin-bottom: 20px;
             }
 
             form {
@@ -151,7 +159,9 @@
         <!-- ======= COLUMNA IZQUIERDA ======= -->
         <div class="left-section">
             <!-- 🔹 Logo -->
-            <img src="{% static 'img/logo.png' %}" alt="Finance Kids Logo" class="logo-img">
+            <div class="logo">
+                <img src="{% static 'core/img/logo.png' %}" alt="Finance Kids Logo">
+            </div>
 
             <!-- 🔹 Formulario -->
             <form method="POST">
@@ -175,7 +185,7 @@
         <!-- ======= COLUMNA DERECHA ======= -->
         <div class="right-section">
             <div class="gif-container">
-                <p style="color:#50b9ff;">[ Aquí irá tu GIF animado 🎞️ ]</p>
+                <img src="{% static 'core/img/animacion.gif' %}" alt="Finance Kids Animación">
             </div>
         </div>
     </div>
