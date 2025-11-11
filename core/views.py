@@ -46,7 +46,8 @@ def registro(request):
     from django.contrib.auth.models import User
     if request.method == "POST":
         username = request.POST.get('username')
-        password = request.POST.get('password')
+        password = request.POST.get('password1')
+
 
         if not username or not password:
             return render(request, 'registro.html', {'error': 'Completa todos los campos'})
