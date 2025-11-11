@@ -159,11 +159,10 @@
         <!-- ======= COLUMNA IZQUIERDA ======= -->
         <div class="left-section">
             <!-- 🔹 Logo -->
-            <div class="logo">
-               <img src="{% static 'img/logo.png' %}" alt="Finance Kids Logo">
+            <a href="{% url 'login' %}" class="logo-btn">
+    <img src="{% static 'img/logo.png' %}" alt="Finance Kids Logo">
+</a>
 
-
-            </div>
 
             <!-- 🔹 Formulario -->
             <form method="POST">
