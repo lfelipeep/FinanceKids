@@ -202,98 +202,11 @@
         </div>
 
         <!-- ======= COLUMNA DERECHA (GIF) ======= -->
-        <!-- Mascota: Pebli (SVG + CSS) -->
-<style>
-  /* Scoped styles for the mascot: adjust sizes with .pebli-wrapper { width: ... } */
-  .pebli-wrapper { width: 220px; max-width: 40vw; margin: 0 auto; display: inline-block; }
-  .pebli-svg { display:block; }
-  /* gentle floating */
-  .pebli-float { animation: floaty 3.5s ease-in-out infinite; transform-origin: 50% 50%; }
-  @keyframes floaty {
-    0% { transform: translateY(0) rotate(-1deg); }
-    50% { transform: translateY(-8px) rotate(1deg); }
-    100% { transform: translateY(0) rotate(-1deg); }
-  }
-  /* blink: we animate the eyelid opacity */
-  .pebli-eye-lid { animation: blink 4s infinite ease-in-out; transform-origin: center; }
-  @keyframes blink {
-    0%, 92%, 100% { transform: scaleY(0); }
-    94% { transform: scaleY(1); }
-  }
-  /* coin shimmer */
-  .pebli-coin { transform-origin: center; animation: coin-shine 6s linear infinite; }
-  @keyframes coin-shine {
-    0% { transform: rotate(-8deg) translateY(0); opacity: 0.95; }
-    50% { transform: rotate(8deg) translateY(-4px); opacity: 1; }
-    100% { transform: rotate(-8deg) translateY(0); opacity: 0.95; }
-  }
-  /* hover or when container has .celebrate class, pep up */
-  .pebli-wrapper:hover .pebli-float,
-  .pebli-wrapper.celebrate .pebli-float {
-    animation: floaty 1.2s ease-in-out infinite;
-  }
-  .sr-only { position:absolute; left:-10000px; top:auto; width:1px; height:1px; overflow:hidden; }
-</style>
-
-<div class="pebli-wrapper" aria-hidden="false" role="img" aria-label="Pebli, la mascota de Finance Kids">
-  <svg class="pebli-svg pebli-float" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-    <!-- Shadow -->
-    <ellipse cx="100" cy="172" rx="46" ry="10" fill="rgba(7,24,45,0.06)"/>
-
-    <!-- Body -->
-    <g transform="translate(0, -4)">
-      <path d="M50 60c0-28 20-44 50-44s50 16 50 44c0 56-100 56-100 0z"
-            fill="#AEE7FF" stroke="#7ED0F7" stroke-width="2" />
-      <!-- white belly -->
-      <ellipse cx="100" cy="98" rx="34" ry="28" fill="#FFFFFF" />
-      <!-- blush -->
-      <ellipse cx="78" cy="100" rx="6" ry="4" fill="#FFCDD2" opacity="0.8"/>
-      <ellipse cx="122" cy="100" rx="6" ry="4" fill="#FFCDD2" opacity="0.8"/>
-    </g>
-
-    <!-- Eyes group -->
-    <g transform="translate(0, 0)">
-      <!-- left eye -->
-      <g transform="translate(74,78)">
-        <circle cx="0" cy="0" r="8" fill="#06283D"/>
-        <circle cx="-2" cy="-2" r="3" fill="#FFFFFF" />
-        <!-- eyelid (animated scaleY) -->
-        <rect class="pebli-eye-lid" x="-9" y="-10" width="18" height="12" fill="#AEE7FF" style="transform-origin: center; transform-box: fill-box; transform: scaleY(0);" />
-      </g>
-      <!-- right eye -->
-      <g transform="translate(126,78)">
-        <circle cx="0" cy="0" r="8" fill="#06283D"/>
-        <circle cx="-2" cy="-2" r="3" fill="#FFFFFF" />
-        <rect class="pebli-eye-lid" x="-9" y="-10" width="18" height="12" fill="#AEE7FF" style="transform-origin: center; transform-box: fill-box; transform: scaleY(0);" />
-      </g>
-
-      <!-- smile -->
-      <path d="M78 116c6 6 18 8 30 0" stroke="#063646" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-    </g>
-
-    <!-- little hands holding coin -->
-    <g transform="translate(0,6)">
-      <!-- left hand -->
-      <path d="M66 120 q-8 6 -10 12" stroke="#7ED0F7" stroke-width="6" stroke-linecap="round" fill="none"/>
-      <!-- right hand -->
-      <path d="M134 120 q8 6 10 12" stroke="#7ED0F7" stroke-width="6" stroke-linecap="round" fill="none"/>
-      <!-- coin (center) -->
-      <g transform="translate(100,108)" class="pebli-coin">
-        <circle r="14" fill="#F9D26A" stroke="#E5C85A" stroke-width="2"/>
-        <text x="0" y="5" text-anchor="middle" font-size="12" font-weight="700" fill="#7A4D03">$</text>
-      </g>
-    </g>
-
-    <!-- subtle sparkle -->
-    <g transform="translate(150,40)" opacity="0.9">
-      <rect x="-2" y="-8" width="4" height="16" fill="#FFF9C4" transform="rotate(20)"/>
-      <rect x="-8" y="-2" width="16" height="4" fill="#FFF9C4" transform="rotate(20)"/>
-    </g>
-  </svg>
-
-  <span class="sr-only">Pebli, la mascota de Finance Kids — pequeña criatura azul que anima a ahorrar</span>
-</div>
-
+        <div class="right-section">
+            <div class="gif-container">
+                <img src="{% static 'img/animacion.gif' %}" alt="Finance Kids Animación">
+            </div>
+        </div>
     </div>
 </body>
 </html>
