@@ -89,13 +89,14 @@ USE_TZ = True
 # ------------------------
 # ARCHIVOS ESTÁTICOS
 # ------------------------
-STATIC_URL = 'core/static'
+STATIC_URL = '/static/'
 
 STATICFILES_DIRS = [
-    BASE_DIR / 'core' / 'static',  # carpeta donde guardas tus archivos (logo, gifs, etc.)
+    BASE_DIR / 'core' / 'static',  # esta es la ruta real en tu sistema de archivos
 ]
 
-STATIC_ROOT = BASE_DIR / 'staticfiles'  # carpeta que se llenará cuando hagas collectstatic
+STATIC_ROOT = BASE_DIR / 'staticfiles'
+
 
 
 # ------------------------
