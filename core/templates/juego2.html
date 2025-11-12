@@ -4,39 +4,113 @@
     <meta charset="UTF-8">
     <title>Juego 2 – Presupuesto</title>
     <style>
+        /* ======== ESTILOS GLOBALES ======== */
         body {
-            font-family: "Comic Sans MS", sans-serif;
-            background: linear-gradient(135deg, #A7F3D0, #6EE7B7);
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #d6f0ff, #e8faff);
+            margin: 0;
+            padding: 0;
             text-align: center;
-            padding: 50px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: #0a3d62;
         }
-        h1 { color: #065F46; }
+
+        h1 {
+            color: #219ebc;
+            font-size: 2rem;
+            margin-bottom: 20px;
+            animation: fadeIn 0.8s ease-in-out;
+        }
+
+        p {
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 10px auto;
+            color: #0f4c75;
+        }
+
+        /* ======== CONTENEDOR DE JUEGO ======== */
+        .juego {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 25px 30px;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+            max-width: 650px;
+            margin-top: 25px;
+        }
+
+        .categorias {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 25px;
+            flex-wrap: wrap;
+        }
+
+        .categoria {
+            background: #f0fbff;
+            border: 2px dashed #219ebc;
+            border-radius: 15px;
+            width: 180px;
+            height: 130px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: #0a3d62;
+            font-weight: 600;
+        }
+
+        /* ======== BOTÓN ======== */
         button {
-            margin-top: 20px;
-            padding: 10px 20px;
-            font-size: 18px;
-            border: none;
-            border-radius: 10px;
-            background: #059669;
+            background: #6fd3ff;
             color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 12px;
+            margin-top: 35px;
             cursor: pointer;
+            font-size: 1rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(111, 211, 255, 0.4);
         }
+
         button:hover {
-            background: #10B981;
+            background: #50b9ff;
+            transform: translateY(-2px);
+        }
+
+        /* ======== ANIMACIÓN ======== */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(15px); }
+            to { opacity: 1; transform: translateY(0); }
         }
     </style>
 </head>
 <body>
     <h1>🎮 Juego 2: Organiza tu presupuesto</h1>
-    <p>
-        Arrastra los siguientes elementos para clasificarlos correctamente:
-    </p>
-    <p>💵 Gastos fijos, 🎁 Gastos extra, 💰 Ahorro</p>
 
-    <p>(Aquí podrías implementar más adelante una miniactividad interactiva)</p>
+    <div class="juego">
+        <p>Arrastra los siguientes elementos para clasificarlos correctamente:</p>
+        <p>💵 Gastos fijos &nbsp; | &nbsp; 🎁 Gastos extra &nbsp; | &nbsp; 💰 Ahorro</p>
 
-    <form action="{% url 'preguntas2' %}">
-        <button type="submit">Responder preguntas</button>
-    </form>
+        <div class="categorias">
+            <div class="categoria">💵 Gastos fijos</div>
+            <div class="categoria">🎁 Gastos extra</div>
+            <div class="categoria">💰 Ahorro</div>
+        </div>
+
+        <p style="margin-top: 25px; color: #5a7684;">
+            (Próximamente: podrás arrastrar elementos para clasificarlos)
+        </p>
+
+        <form action="{% url 'preguntas2' %}">
+            <button type="submit">Responder preguntas ➡️</button>
+        </form>
+    </div>
 </body>
 </html>
