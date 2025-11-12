@@ -155,32 +155,24 @@
             </div>
 
             <!-- 🔹 Formulario -->
-            <form method="POST">
-                {% csrf_token %}
-                <h2>Iniciar Sesión</h2>
+           <!-- 🔹 Formulario -->
+<form method="POST">
+    {% csrf_token %}
+    <h2>Iniciar Sesión</h2>
 
-                {% if error %}
-                    <div class="error">{{ error }}</div>
-                {% endif %}
+    {% if error %}
+        <div class="error">{{ error }}</div>
+    {% endif %}
 
-                <!-- Campo de usuario -->
-                <div class="brutalist-container">
-                    <input type="text" name="username" class="brutalist-input smooth-type" placeholder="Nombre de usuario" required />
-                    <label class="brutalist-label">Usuario</label>
-                </div>
+    <input type="text" name="username" placeholder="Nombre de usuario" required>
+    <input type="password" name="password" placeholder="Contraseña" required>
 
-                <!-- Campo de contraseña -->
-                <div class="brutalist-container">
-                    <input type="password" name="password" class="brutalist-input smooth-type" placeholder="Contraseña" required />
-                    <label class="brutalist-label">Contraseña</label>
-                </div>
+    <button type="submit">Entrar</button>
 
-                <button type="submit">Entrar</button>
-
-                <a href="{% url 'registro' %}">
-                    <button type="button" class="register-btn">Regístrate</button>
-                </a>
-            </form>
+    <a href="{% url 'registro' %}">
+        <button type="button" class="register-btn">Regístrate</button>
+    </a>
+</form>
         </div>
 
         <!-- ======= COLUMNA DERECHA ======= -->
