@@ -155,33 +155,72 @@
             </div>
 
             <!-- 🔹 Formulario -->
-            <form method="POST">
-                {% csrf_token %}
-                <h2>Iniciar Sesión</h2>
+<form method="POST" style="
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #f7fdff;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    width: 320px;
+    text-align: center;
+">
+    {% csrf_token %}
+    <h2 style="color: #219ebc; margin-bottom: 20px;">Iniciar Sesión</h2>
 
-                {% if error %}
-                    <div class="error">{{ error }}</div>
-                {% endif %}
+    {% if error %}
+        <div style="color: #c0392b; font-size: 0.9rem; margin-bottom: 10px;">{{ error }}</div>
+    {% endif %}
 
-                <!-- Campo de usuario -->
-                <div class="brutalist-container">
-                    <input type="text" name="username" class="brutalist-input smooth-type" placeholder="Nombre de usuario" required />
-                    <label class="brutalist-label">Usuario</label>
-                </div>
+    <!-- Campo de usuario -->
+    <div style="position: relative; width: 100%; max-width: 250px; margin-bottom: 15px;">
+        <input type="text" name="username" placeholder="Nombre de usuario" required
+            style="width: 100%; padding: 10px; font-size: 16px; border: 2px solid #000; box-shadow: 5px 5px 0 #000, 10px 10px 0 #4a90e2; outline: none; font-family: monospace;">
+        <label style="position: absolute; left: -3px; top: -30px; font-size: 14px; font-weight: bold; color: #fff; background-color: #000; padding: 5px 10px; transform: rotate(-1deg);">
+            Usuario
+        </label>
+    </div>
 
-                <!-- Campo de contraseña -->
-                <div class="brutalist-container">
-                    <input type="password" name="password" class="brutalist-input smooth-type" placeholder="Contraseña" required />
-                    <label class="brutalist-label">Contraseña</label>
-                </div>
+    <!-- Campo de contraseña -->
+    <div style="position: relative; width: 100%; max-width: 250px; margin-bottom: 15px;">
+        <input type="password" name="password" placeholder="Contraseña" required
+            style="width: 100%; padding: 10px; font-size: 16px; border: 2px solid #000; box-shadow: 5px 5px 0 #000, 10px 10px 0 #4a90e2; outline: none; font-family: monospace;">
+        <label style="position: absolute; left: -3px; top: -30px; font-size: 14px; font-weight: bold; color: #fff; background-color: #000; padding: 5px 10px; transform: rotate(-1deg);">
+            Contraseña
+        </label>
+    </div>
 
-                <button type="submit">Entrar</button>
+    <button type="submit" style="
+        background: #6fd3ff;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        width: 100%;
+        border-radius: 8px;
+        font-size: 1rem;
+        cursor: pointer;
+        font-weight: bold;
+        box-shadow: 3px 3px 0 #000;
+        transition: all 0.3s ease;
+    ">Entrar</button>
 
-                <a href="{% url 'registro' %}">
-                    <button type="button" class="register-btn">Regístrate</button>
-                </a>
-            </form>
-        </div>
+    <a href="{% url 'registro' %}" style="width: 100%; text-decoration: none; margin-top: 10px;">
+        <button type="button" style="
+            background-color: white;
+            border: 2px solid #6fd3ff;
+            color: #219ebc;
+            font-weight: bold;
+            width: 100%;
+            border-radius: 8px;
+            padding: 10px 20px;
+            cursor: pointer;
+            box-shadow: 3px 3px 0 #000;
+            transition: all 0.3s ease;
+        ">Regístrate</button>
+    </a>
+</form>
+
 
         <!-- ======= COLUMNA DERECHA ======= -->
         <div class="right-section">
