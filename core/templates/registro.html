@@ -29,7 +29,7 @@
         }
 
         /* ========== 
-           COLUMNA IZQUIERDA (GIF)
+           COLUMNA IZQUIERDA (GIF principal)
         ========== */
         .left-section {
             flex: 1;
@@ -49,7 +49,7 @@
         }
 
         /* ========== 
-           COLUMNA DERECHA (Formulario + Logo)
+           COLUMNA DERECHA (Formulario + Logo + Mascota)
         ========== */
         .right-section {
             flex: 1;
@@ -165,21 +165,24 @@
 
 <body>
     <div class="container">
-        <!-- ======= COLUMNA IZQUIERDA (GIF) ======= -->
+        <!-- ======= COLUMNA IZQUIERDA (GIF principal) ======= -->
         <div class="left-section">
             <div class="gif-container">
-                <!-- 🔹 Aquí podrás insertar tu GIF cuando me lo pases -->
-                <!-- Ejemplo: -->
-                <!-- <img src="{% static 'img/registro_animacion.gif' %}" alt="Animación Finance Kids"> -->
                 <p style="color:#2c91d3;">[ Aquí irá tu GIF de registro 🎞️ ]</p>
             </div>
         </div>
 
-        <!-- ======= COLUMNA DERECHA (Formulario) ======= -->
+        <!-- ======= COLUMNA DERECHA (Formulario + Mascota) ======= -->
         <div class="right-section">
-            <!-- 🔹 Logo (arriba a la derecha) -->
-            <!-- Ejemplo real: <img src="{% static 'img/logo.png' %}" alt="Logo" class="logo-img"> -->
+            <!-- 🔹 Logo -->
             <div class="logo">Tu Logo Aquí</div>
+
+            <!-- 🔹 GIF de la mascota -->
+            <div class="gif-container" style="margin-bottom: 20px;">
+                <img src="https://media.tenor.com/i5GOWvrGf7sAAAAi/hmpf-hmph.gif" 
+                     alt="Finance Kids Mascota"
+                     style="width: 350px; height: auto;">
+            </div>
 
             <!-- 🔹 Formulario de registro -->
             <form method="POST">
