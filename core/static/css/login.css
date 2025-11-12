@@ -1,143 +1,180 @@
-/* ====== Fondo general ====== */
+/* === LAYOUT GENERAL === */
 body {
-  background: linear-gradient(135deg, #eaf6ff, #ffffff);
   font-family: "Poppins", sans-serif;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
   margin: 0;
-}
-
-/* ====== Caja del formulario ====== */
-.login-box {
-  background: #ffffff;
-  border-radius: 16px;
-  padding: 40px;
-  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.1);
-  width: 360px;
-  text-align: center;
-  border-top: 4px solid #007acc;
-}
-
-.login-box h2 {
-  color: #007acc;
-  margin-bottom: 25px;
-  font-weight: 600;
-}
-
-/* ====== Campos de entrada (azul-blanco) ====== */
-.input__container {
-  position: relative;
-  background: #f0f8ff;
+  padding: 0;
+  height: 100vh;
+  background-color: #e8f8ff;
   display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 14px;
-  border: 2px solid #007acc;
-  border-radius: 10px;
-  margin: 15px auto;
+}
+
+.container {
+  display: flex;
   width: 100%;
-  transition: 0.3s ease;
+  height: 100%;
 }
 
-.input__container:hover {
-  background: #e9f5ff;
-  box-shadow: 0 0 10px rgba(0, 122, 204, 0.2);
-  transform: scale(1.01);
-}
-
-/* Botón del ícono */
-.input__button__shadow {
-  background: #007acc;
-  border: none;
-  border-radius: 8px;
-  padding: 6px;
+/* === SECCIÓN IZQUIERDA === */
+.left-section {
+  flex: 1;
   display: flex;
-  align-items: center;
+  flex-direction: column;
   justify-content: center;
-  transition: 0.3s ease;
+  align-items: center;
+  background-color: #ffffff;
+  box-shadow: 5px 0 15px rgba(0, 0, 0, 0.05);
+  position: relative;
 }
 
-.input__button__shadow:hover {
-  background: #005f99;
-}
-
-.input__button__shadow svg {
-  fill: #ffffff;
-}
-
-/* Input */
-.input__search {
-  width: 100%;
-  border: none;
-  background: transparent;
-  font-size: 15px;
-  outline: none;
-  color: #00334d;
-}
-
-.input__search::placeholder {
-  color: #666;
-}
-
-/* ====== Etiquetas flotantes ====== */
-.input__container::before {
-  content: "USUARIO";
+.logo {
   position: absolute;
-  top: -10px;
-  left: 15px;
-  background: #007acc;
+  top: 30px;
+  left: 40px;
+}
+
+.logo img {
+  width: 130px;
+  height: auto;
+}
+
+/* === FORMULARIO === */
+.login-form {
+  background: #f7fdff;
+  padding: 30px 40px;
+  border-radius: 20px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+  width: 320px;
+  text-align: center;
+}
+
+h2 {
+  color: #219ebc;
+  margin-bottom: 25px;
+}
+
+.error {
+  color: #c0392b;
+  font-size: 0.9rem;
+  margin-bottom: 10px;
+}
+
+/* === BOTONES === */
+.btn-main {
+  background: #6fd3ff;
   color: white;
-  font-size: 12px;
-  padding: 2px 8px;
-  border-radius: 5px;
-}
-
-.input__container.password::before {
-  content: "CONTRASEÑA";
-}
-
-/* ====== Botones ====== */
-button[type="submit"],
-.register-btn {
-  width: 100%;
   border: none;
-  border-radius: 10px;
-  padding: 12px;
-  font-size: 16px;
-  margin-top: 18px;
+  padding: 10px 20px;
+  width: 100%;
+  border-radius: 8px;
+  font-size: 1rem;
   cursor: pointer;
-  transition: all 0.3s ease;
-  font-weight: 500;
+  margin-top: 15px;
+  transition: background 0.3s ease;
 }
 
-/* Botón principal */
-button[type="submit"] {
-  background: #007acc;
-  color: #ffffff;
+.btn-main:hover {
+  background: #50b9ff;
 }
 
-button[type="submit"]:hover {
-  background: #005f99;
-}
-
-/* Botón secundario */
 .register-btn {
-  background: #ffffff;
-  color: #007acc;
-  border: 2px solid #007acc;
+  margin-top: 15px;
+  background-color: white;
+  border: 2px solid #6fd3ff;
+  color: #219ebc;
+  font-weight: 500;
+  width: 100%;
+  border-radius: 8px;
+  padding: 10px 20px;
+  transition: all 0.3s ease;
 }
 
 .register-btn:hover {
-  background: #007acc;
-  color: #ffffff;
+  background-color: #6fd3ff;
+  color: white;
 }
 
-/* ====== Responsivo ====== */
-@media (max-width: 400px) {
-  .login-box {
-    width: 90%;
-    padding: 25px;
+/* === GIF DERECHA === */
+.right-section {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #d6f0ff;
+}
+
+.gif-container img {
+  width: 80%;
+  max-width: 400px;
+  height: auto;
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 900px) {
+  .container {
+    flex-direction: column;
   }
+
+  .left-section,
+  .right-section {
+    flex: none;
+    width: 100%;
+    box-shadow: none;
+  }
+
+  .logo {
+    position: static;
+    margin-bottom: 20px;
+  }
+
+  .login-form {
+    width: 80%;
+    max-width: 350px;
+  }
+
+  .gif-container {
+    display: none;
+  }
+}
+
+/* === ESTILO BRUTALIST === */
+.brutalist-container {
+  position: relative;
+  width: 100%;
+  margin: 15px 0;
+  font-family: monospace;
+}
+
+.brutalist-input {
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #000;
+  background-color: #fff;
+  border: 4px solid #000;
+  position: relative;
+  overflow: hidden;
+  border-radius: 0;
+  outline: none;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  box-shadow: 5px 5px 0 #000, 10px 10px 0 #4a90e2;
+}
+
+.brutalist-label {
+  position: absolute;
+  left: -3px;
+  top: -30px;
+  font-size: 14px;
+  font-weight: bold;
+  color: #fff;
+  background-color: #000;
+  padding: 5px 10px;
+  transform: rotate(-1deg);
+  z-index: 1;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.brutalist-input:focus + .brutalist-label {
+  transform: rotate(0deg) scale(1.05);
+  background-color: #4a90e2;
 }

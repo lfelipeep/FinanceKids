@@ -5,157 +5,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Iniciar Sesión - Finance Kids</title>
-
-    <!-- 🔹 Enlaza el archivo CSS externo -->
     <link rel="stylesheet" href="{% static 'css/login.css' %}">
-
-    <style>
-        /* ========== ESTILOS GLOBALES ========== */
-        body {
-            font-family: "Poppins", sans-serif;
-            margin: 0;
-            padding: 0;
-            height: 100vh;
-            background-color: #e8f8ff;
-            display: flex;
-        }
-
-        .container {
-            display: flex;
-            width: 100%;
-            height: 100%;
-        }
-
-        /* ========== COLUMNA IZQUIERDA ========== */
-        .left-section {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            background-color: #ffffff;
-            box-shadow: 5px 0 15px rgba(0, 0, 0, 0.05);
-            position: relative;
-        }
-
-        /* 🔹 Logo */
-        .logo {
-            position: absolute;
-            top: 30px;
-            left: 40px;
-        }
-
-        .logo img {
-            width: 130px;
-            height: auto;
-        }
-
-        /* ========== FORMULARIO ========== */
-        form {
-            background: #f7fdff;
-            padding: 30px;
-            border-radius: 20px;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-            width: 320px;
-            text-align: center;
-        }
-
-        h2 {
-            color: #219ebc;
-            margin-bottom: 25px;
-        }
-
-        button {
-            background: #4a90e2;
-            color: white;
-            border: none;
-            padding: 12px 20px;
-            width: 100%;
-            border-radius: 8px;
-            font-size: 1rem;
-            cursor: pointer;
-            font-weight: bold;
-            transition: 0.3s ease;
-            box-shadow: 3px 3px 0 #000;
-        }
-
-        button:hover {
-            background: #357ABD;
-            box-shadow: 5px 5px 0 #000;
-        }
-
-        .register-btn {
-            margin-top: 15px;
-            background-color: white;
-            border: 2px solid #4a90e2;
-            color: #219ebc;
-            font-weight: bold;
-            transition: all 0.3s ease;
-            box-shadow: 2px 2px 0 #000;
-        }
-
-        .register-btn:hover {
-            background-color: #4a90e2;
-            color: white;
-            box-shadow: 4px 4px 0 #000;
-        }
-
-        .error {
-            color: #c0392b;
-            font-size: 0.9rem;
-            margin-bottom: 10px;
-        }
-
-        /* ========== COLUMNA DERECHA (GIF) ========== */
-        .right-section {
-            flex: 1;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background-color: #d6f0ff;
-        }
-
-        .gif-container img {
-            width: 80%;
-            max-width: 400px;
-            height: auto;
-        }
-
-        @media (max-width: 900px) {
-            .container {
-                flex-direction: column;
-            }
-
-            .left-section, .right-section {
-                flex: none;
-                width: 100%;
-                box-shadow: none;
-            }
-
-            form {
-                width: 80%;
-                max-width: 350px;
-            }
-
-            .gif-container {
-                display: none;
-            }
-        }
-    </style>
 </head>
-
 <body>
     <div class="container">
         <!-- ======= COLUMNA IZQUIERDA ======= -->
         <div class="left-section">
-            
             <!-- 🔹 Logo -->
             <div class="logo">
-                <img src="{% static 'img/logo wiliam.jpg' %}" alt="Finance Kids Logo">
+                <img src="{% static 'img/logo wiliam.jpg' %}" alt="Logo Finance Kids">
             </div>
 
             <!-- 🔹 Formulario -->
-            <form method="POST">
+            <form method="POST" class="login-form">
                 {% csrf_token %}
                 <h2>Iniciar Sesión</h2>
 
@@ -165,17 +27,17 @@
 
                 <!-- Campo de usuario -->
                 <div class="brutalist-container">
-                    <input type="text" name="username" class="brutalist-input smooth-type" placeholder="Nombre de usuario" required />
+                    <input type="text" name="username" class="brutalist-input smooth-type" placeholder="Nombre de usuario" required>
                     <label class="brutalist-label">Usuario</label>
                 </div>
 
                 <!-- Campo de contraseña -->
                 <div class="brutalist-container">
-                    <input type="password" name="password" class="brutalist-input smooth-type" placeholder="Contraseña" required />
+                    <input type="password" name="password" class="brutalist-input smooth-type" placeholder="Contraseña" required>
                     <label class="brutalist-label">Contraseña</label>
                 </div>
 
-                <button type="submit">Entrar</button>
+                <button type="submit" class="btn-main">Entrar</button>
 
                 <a href="{% url 'registro' %}">
                     <button type="button" class="register-btn">Regístrate</button>
