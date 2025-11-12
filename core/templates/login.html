@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Iniciar Sesión - Finance Kids</title>
-<!-- 🔹 Enlaza el archivo CSS externo -->
+
+    <!-- 🔹 Enlaza el archivo CSS externo -->
     <link rel="stylesheet" href="{% static 'css/login.css' %}">
 
     <style>
@@ -19,7 +20,6 @@
             display: flex;
         }
 
-        /* ========== CONTENEDOR PRINCIPAL ========== */
         .container {
             display: flex;
             width: 100%;
@@ -62,53 +62,48 @@
 
         h2 {
             color: #219ebc;
-            margin-bottom: 20px;
-        }
-
-        input {
-            width: 100%;
-            padding: 10px;
-            margin: 10px 0;
-            border-radius: 8px;
-            border: 1px solid #ccc;
-            font-size: 1rem;
+            margin-bottom: 25px;
         }
 
         button {
-            background: #6fd3ff;
+            background: #4a90e2;
             color: white;
             border: none;
-            padding: 10px 20px;
+            padding: 12px 20px;
             width: 100%;
             border-radius: 8px;
             font-size: 1rem;
             cursor: pointer;
-            transition: background 0.3s ease;
+            font-weight: bold;
+            transition: 0.3s ease;
+            box-shadow: 3px 3px 0 #000;
         }
 
         button:hover {
-            background: #50b9ff;
+            background: #357ABD;
+            box-shadow: 5px 5px 0 #000;
+        }
+
+        .register-btn {
+            margin-top: 15px;
+            background-color: white;
+            border: 2px solid #4a90e2;
+            color: #219ebc;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 2px 2px 0 #000;
+        }
+
+        .register-btn:hover {
+            background-color: #4a90e2;
+            color: white;
+            box-shadow: 4px 4px 0 #000;
         }
 
         .error {
             color: #c0392b;
             font-size: 0.9rem;
             margin-bottom: 10px;
-        }
-
-        /* ========== BOTÓN DE REGISTRO ========== */
-        .register-btn {
-            margin-top: 15px;
-            background-color: white;
-            border: 2px solid #6fd3ff;
-            color: #219ebc;
-            font-weight: 500;
-            transition: all 0.3s ease;
-        }
-
-        .register-btn:hover {
-            background-color: #6fd3ff;
-            color: white;
         }
 
         /* ========== COLUMNA DERECHA (GIF) ========== */
@@ -126,7 +121,6 @@
             height: auto;
         }
 
-        /* ========== RESPONSIVE ========== */
         @media (max-width: 900px) {
             .container {
                 flex-direction: column;
@@ -136,11 +130,6 @@
                 flex: none;
                 width: 100%;
                 box-shadow: none;
-            }
-
-            .logo {
-                position: static;
-                margin-bottom: 20px;
             }
 
             form {
@@ -161,12 +150,9 @@
         <div class="left-section">
             
             <!-- 🔹 Logo -->
-<img src="core/static/img/logo wiliam.jpg">
-
-
-
-
-
+            <div class="logo">
+                <img src="{% static 'img/logo wiliam.jpg' %}" alt="Finance Kids Logo">
+            </div>
 
             <!-- 🔹 Formulario -->
             <form method="POST">
@@ -178,32 +164,16 @@
                 {% endif %}
 
                 <!-- Campo de usuario -->
-<div class="input__container">
-  <div class="shadow__input"></div>
-  <button class="input__button__shadow" type="button">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#000000" width="20px" height="20px">
-      <path d="M0 0h24v24H0z" fill="none"></path>
-      <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 
-      1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"></path>
-    </svg>
-  </button>
-  <input type="text" name="username" class="input__search" placeholder="Nombre de usuario" required />
-</div>
+                <div class="brutalist-container">
+                    <input type="text" name="username" class="brutalist-input smooth-type" placeholder="Nombre de usuario" required />
+                    <label class="brutalist-label">Usuario</label>
+                </div>
 
-<!-- Campo de contraseña -->
-<div class="input__container password">
-  <div class="shadow__input"></div>
-  <button class="input__button__shadow" type="button">
-    <svg xmlns="http://www.w3.org/2000/svg" fill="#000000" width="20px" height="20px" viewBox="0 0 24 24">
-      <path d="M12 17a2 2 0 100-4 2 2 0 000 4zm6-7h-1V7a5 
-      5 0 00-10 0v3H6c-1.1 0-2 .9-2 
-      2v9c0 1.1.9 2 2 2h12c1.1 0 2-.9 
-      2-2v-9c0-1.1-.9-2-2-2zM9 7a3 3 0 
-      016 0v3H9V7z"></path>
-    </svg>
-  </button>
-  <input type="password" name="password" class="input__search" placeholder="Contraseña" required />
-</div>
+                <!-- Campo de contraseña -->
+                <div class="brutalist-container">
+                    <input type="password" name="password" class="brutalist-input smooth-type" placeholder="Contraseña" required />
+                    <label class="brutalist-label">Contraseña</label>
+                </div>
 
                 <button type="submit">Entrar</button>
 
@@ -216,7 +186,7 @@
         <!-- ======= COLUMNA DERECHA ======= -->
         <div class="right-section">
             <div class="gif-container">
-                <img src="{% static 'core/img/animacion.gif' %}" alt="Finance Kids Animación">
+                <img src="{% static 'img/animacion.gif' %}" alt="Finance Kids Animación">
             </div>
         </div>
     </div>
