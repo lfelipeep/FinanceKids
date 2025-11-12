@@ -89,7 +89,7 @@ USE_TZ = True
 # ------------------------
 # ARCHIVOS ESTÁTICOS
 # ------------------------
-STATIC_URL = '/static/'
+STATIC_URL = 'core/static'
 
 STATICFILES_DIRS = [
     BASE_DIR / 'core' / 'static',  # carpeta donde guardas tus archivos (logo, gifs, etc.)
